@@ -1,0 +1,22 @@
+{ 
+   "name":"@omostan/angularjs-xeditable",
+   "version":"1.0.0",
+   "description":"A generic Service Proxy that can be used to call JSON Services generically using jQuery.",
+   "author":"Stanley Omoregie",
+   "repository":{ 
+      "type":"git",
+      "url":"https://github.com/omostan/angularjs-xeditable.git"
+   },
+   "homepage":"https://github.com/omostan/angularjs-xeditable",
+   "main": "angularjs-xeditable.min.js",
+   "keywords":[ 
+      "x-editable",
+      "xeditable",
+      "angular",
+      "angularjs"
+   ],
+   "license":"MIT",
+   "peerDependencies":{ 
+      "angular":"^1.5.0"
+   }
+}
