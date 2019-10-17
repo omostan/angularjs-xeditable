@@ -1,7 +1,7 @@
 { 
    "name":"@omostan/angularjs-xeditable",
    "version":"1.0.0",
-   "description":"A generic Service Proxy that can be used to call JSON Services generically using jQuery.",
+   "description":"A customized version of xeditable - a bundle of AngularJS directives that allows you to create editable elements in your projects. Such technique is also known as click-to-edit or edit-in-place.",
    "author":"Stanley Omoregie",
    "repository":{ 
       "type":"git",
