@@ -8,7 +8,7 @@
       "url":"https://github.com/omostan/angularjs-xeditable.git"
    },
    "homepage":"https://github.com/omostan/angularjs-xeditable",
-   "main": "js/angularjs-xeditable.min.js",
+   "main": "js/xeditable.min.js",
    "keywords":[ 
       "x-editable",
       "xeditable",
