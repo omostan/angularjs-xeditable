@@ -147,17 +147,20 @@ angular.module('xeditable', [])
    *
    * @var {boolean} displayClearButton
    * @memberOf editable-options
+   * example: a) editableOptions.displaySubmitButton = false (global)
+   *          b) display-submit-button = 'false' (on single element)
+   * added by Stanley Omoregie (stan@omotech.com)
    */
   displayClearButton: false,
 
   /**
    * Whether not to display the submit button.
-   * Default is `true`
+   * Default is `false`
    *
-   * @var {boolean} noSubmitButton
+   * @var {boolean} displaySubmitButton
    * @memberOf editable-options
    */
-  displaySubmitButton: 'false'
+  displaySubmitButton: false
 });
 
 /*
@@ -985,21 +988,22 @@ angular.module('xeditable').factory('editableController',
         self.resetEl.attr('title', editableOptions.clearButtonTitle);
         self.resetEl.attr('aria-label', editableOptions.clearButtonAriaLabel);
 
-        if (self.icon_set) {
-          self.submitEl.find('span').addClass(self.icon_set.ok);
-          self.cancelEl.find('span').addClass(self.icon_set.cancel);
-          self.resetEl.find('span').addClass(self.icon_set.clear);
-        }
+      if (self.icon_set) {
+        self.submitEl.find('span').addClass(self.icon_set.ok);
+        self.cancelEl.find('span').addClass(self.icon_set.cancel);
+        self.resetEl.find('span').addClass(self.icon_set.clear);
+      }
 
-        if (editableOptions.displayClearButton) {
-          self.buttonsEl.append(self.resetEl);
-        }
+      if (editableOptions.displayClearButton) {
+        self.buttonsEl.append(self.resetEl);
+      }
 
         self.buttonsEl.append(self.cancelEl);
 
-        if (self.attrs.displaySubmitButton === 'true') {
-          self.buttonsEl.append(self.submitEl).append(self.cancelEl);
-        }
+      //added by Stanley Omoregie (stan@omotech.com) on October 17, 2019
+      if (editableOptions.displaySubmitButton || self.attrs.displaySubmitButton === 'true') {
+        self.buttonsEl.append(self.submitEl).append(self.cancelEl);
+      }
 
         self.controlsEl.append(self.buttonsEl);
         
