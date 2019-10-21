@@ -1,67 +1,67 @@
 /*!
-angular-xeditable - 0.10.0
+angular-xeditable - 0.8.1
 Edit-in-place for angular.js
-Build date: 2019-06-24 
+Build date: 2017-11-14 
 */
 /**
- * Angular-xeditable module
+ * Angular-xeditable module 
  *
  */
 angular.module('xeditable', [])
 
 
 /**
- * Default options.
+ * Default options. 
  *
  * @namespace editable-options
  */
 //todo: maybe better have editableDefaults, not options...
 .value('editableOptions', {
   /**
-   * Theme. Possible values `bs4`, `bs3`, `bs2`, `default`.
+   * Theme. Possible values `bs3`, `bs2`, `default`.  
    * Default is `default`
-   *
+   * 
    * @var {string} theme
    * @memberOf editable-options
-   */
+   */  
   theme: 'default',
   /**
-   * icon_set. Possible values `font-awesome`, `default`.
+   * icon_set. Possible values `font-awesome`, `default`.  
    * Default is `default`
-   *
+   * 
    * @var {string} icon set
    * @memberOf editable-options
-   */
+   */  
   icon_set: 'default',
   /**
-   * Whether to show buttons for single editable element.
-   * Possible values `right`, `no`.
+   * Whether to show buttons for single editable element.  
+   * Possible values `right`, `no`.  
    * Default is `right`
-   *
+   * 
    * @var {string} buttons
    * @memberOf editable-options
-   */
+   */    
   buttons: 'right',
   /**
-   * Default value for `blur` attribute of single editable element.
-   * Can be `cancel|submit|ignore`.
+   * Default value for `blur` attribute of single editable element.  
+   * Can be `cancel|submit|ignore`.  
    * Default is `cancel`
-   *
+   * 
    * @var {string} blurElem
    * @memberOf editable-options
    */
   blurElem: 'cancel',
   /**
-   * Default value for `blur` attribute of editable form.
-   * Can be `cancel|submit|ignore`.
+   * Default value for `blur` attribute of editable form.  
+   * Can be `cancel|submit|ignore`.  
    * Default is `ignore`.
-   *
+   * 
    * @var {string} blurForm
    * @memberOf editable-options
    */
   blurForm: 'ignore',
   /**
-   * How input elements get activated. Possible values: `focus|select|none`.
+   * How input elements get activated. Possible values: `focus|select|none`.  
    * Default is `focus`
    *
    * @var {string} activate
@@ -69,17 +69,17 @@ angular.module('xeditable', [])
    */
   activate: 'focus',
   /**
-   * Whether to disable x-editable. Can be overloaded on each element.
+   * Whether to disable x-editable. Can be overloaded on each element.  
    * Default is `false`
    *
    * @var {boolean} isDisabled
    * @memberOf editable-options
    */
    isDisabled: false,
-
+  
   /**
-   * Event, on which the edit mode gets activated.
-   * Can be any event.
+   * Event, on which the edit mode gets activated. 
+   * Can be any event.  
    * Default is `click`
    *
    * @var {string} activationEvent
@@ -88,7 +88,7 @@ angular.module('xeditable', [])
   activationEvent: 'click',
 
   /**
-   * The default title of the submit button.
+   * The default title of the submit button.  
    * Default is `Submit`
    *
    * @var {string} submitButtonTitle
@@ -97,7 +97,7 @@ angular.module('xeditable', [])
   submitButtonTitle: 'Submit',
 
   /**
-   * The default aria label of the submit button.
+   * The default aria label of the submit button.  
    * Default is `Submit`
    *
    * @var {string} submitButtonAriaLabel
@@ -106,7 +106,7 @@ angular.module('xeditable', [])
   submitButtonAriaLabel: 'Submit',
 
   /**
-   * The default title of the cancel button.
+   * The default title of the cancel button.  
    * Default is `Cancel`
    *
    * @var {string} cancelButtonTitle
@@ -115,7 +115,7 @@ angular.module('xeditable', [])
   cancelButtonTitle: 'Cancel',
 
   /**
-   * The default aria label of the cancel button.
+   * The default aria label of the cancel button.  
    * Default is `Cancel`
    *
    * @var {string} cancelButtonAriaLabel
@@ -124,7 +124,7 @@ angular.module('xeditable', [])
   cancelButtonAriaLabel: 'Cancel',
 
   /**
-   * The default title of the clear button.
+   * The default title of the clear button.  
    * Default is `Clear`
    *
    * @var {string} clearButtonTitle
@@ -133,7 +133,7 @@ angular.module('xeditable', [])
   clearButtonTitle: 'Clear',
 
   /**
-   * The default aria label of the clear button.
+   * The default aria label of the clear button.  
    * Default is `Clear`
    *
    * @var {string} clearButtonAriaLabel
@@ -142,14 +142,11 @@ angular.module('xeditable', [])
   clearButtonAriaLabel: 'Clear',
 
   /**
-   * Whether to display the clear button.
+   * Whether to display the clear button.  
    * Default is `false`
    *
    * @var {boolean} displayClearButton
    * @memberOf editable-options
-   * example: a) editableOptions.displaySubmitButton = false (global)
-   *          b) display-submit-button = 'false' (on single element)
-   * added by Stanley Omoregie (stan@omotech.com)
    */
   displayClearButton: false,
 
@@ -171,8 +168,8 @@ angular.module('xeditable').directive('editableBsdate', ['editableDirectiveFacto
     function(editableDirectiveFactory, $injector, $parse) {
 
         // Constants from Angular-ui bootstrap datepicker
-        var uibDatepickerConfig = $injector.get('uibDatepickerConfig');
-        var uibDatepickerPopupConfig = $injector.get('uibDatepickerPopupConfig');
+        uibDatepickerConfig = $injector.get('uibDatepickerConfig');
+        uibDatepickerPopupConfig = $injector.get('uibDatepickerPopupConfig');
 
         var popupAttrNames = [
             ['eIsOpen', 'is-open'],
@@ -187,8 +184,7 @@ angular.module('xeditable').directive('editableBsdate', ['editableDirectiveFacto
             ['eOnOpenFocus', 'on-open-focus'],
             ['eName', 'name'],
             ['eDateDisabled', 'date-disabled'],
-            ['eAltInputFormats', 'alt-input-formats'],
-            ['eDatepickerTemplateUrl', 'datepicker-template-url']
+            ['eAltInputFormats', 'alt-input-formats']
         ];
 
         var dateOptionsNames = [
@@ -265,10 +261,8 @@ angular.module('xeditable').directive('editableBsdate', ['editableDirectiveFacto
 
                 //See if calendar button should be displayed
                 if (showCalendarButton === "true") {
-                    var buttonDatePicker = angular.element('<button type="button" class="' +
-                                            this.theme.calendarButtonClass + '"><i class="' +
-                                            this.icon_set.calendar + '"></i></button>');
-                    var buttonWrapper = angular.element('<span class="' + this.theme.buttonGroupAppendClass+ '"></span>');
+                    var buttonDatePicker = angular.element('<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>');
+                    var buttonWrapper = angular.element('<span class="input-group-btn"></span>');
 
                     buttonDatePicker.attr('ng-click', attrs.eNgClick);
 
@@ -304,7 +298,7 @@ angular.module('xeditable').directive('editableBsdate', ['editableDirectiveFacto
                         });
                     }, 500);
                 });
-
+                
                 self.inputEl.bind('keydown', function(e) {
                     //submit on tab
                     if (e.keyCode === 9 && self.editorEl.attr('blur') === 'submit') {
@@ -390,7 +384,6 @@ angular.module('xeditable').directive('editableChecklist', [
         var parsed = editableNgOptionsParser(this.attrs.eNgOptions);
         var ngChangeHtml = '';
         var ngChecklistComparatorHtml = '';
-        var ngDisabled = '';
 
         if (this.attrs.eNgChange) {
           ngChangeHtml = ' ng-change="' +  this.attrs.eNgChange + '"';
@@ -399,14 +392,10 @@ angular.module('xeditable').directive('editableChecklist', [
         if (this.attrs.eChecklistComparator) {
           ngChecklistComparatorHtml = ' checklist-comparator="' +  this.attrs.eChecklistComparator + '"';
         }
-
-        if(this.attrs.eNgDisabled){
-          ngDisabled = ' ng-disabled="' + this.attrs.eNgDisabled+'"';
-        }
         
         var html = '<label ng-repeat="'+parsed.ngRepeat+'">'+
           '<input type="checkbox" checklist-model="$parent.$parent.$data" checklist-value="'+parsed.locals.valueFn+'"' +
-            ngChangeHtml + ngChecklistComparatorHtml + ngDisabled+'>'+
+            ngChangeHtml + ngChecklistComparatorHtml + '>'+
           '<span ng-bind="'+parsed.locals.displayFn+'"></span></label>';
 
         this.inputEl.removeAttr('ng-model');
@@ -445,8 +434,9 @@ angular.module('xeditable').directive('editableCombodate', ['editableDirectiveFa
 
         var combodate = editableCombodate.getInstance(this.inputEl, options);
         combodate.$widget.find('select').bind('change', function(e) {
+          //.replace is so this works in Safari
           self.scope.$data = combodate.getValue() ?
-              moment(combodate.getValue(), combodate.options.format).toDate().toISOString() : null;
+              (new Date(combodate.getValue().replace(/-/g, "/"))).toISOString() : null;
         }).change();
       }
     });
@@ -467,7 +457,7 @@ Input types: text|password|email|tel|number|url|search|color|date|datetime|datet
   var types = 'text|password|email|tel|number|url|search|color|date|datetime|datetime-local|time|month|week|file'.split('|');
 
   //todo: datalist
-
+  
   // generate directives
   angular.forEach(types, function(type) {
     var directiveName = camelCase('editable' + '-' + type);
@@ -479,37 +469,34 @@ Input types: text|password|email|tel|number|url|search|color|date|datetime|datet
           render: function() {
             this.parent.render.call(this);
 
-            var attrs = this.attrs;
-            var scope = this.scope;
-
             //Add bootstrap simple input groups
-            if (attrs.eInputgroupleft || attrs.eInputgroupright) {
+            if (this.attrs.eInputgroupleft || this.attrs.eInputgroupright) {
               this.inputEl.wrap('<div class="input-group"></div>');
 
-              if (attrs.eInputgroupleft) {
-                var inputGroupLeft = angular.element('<span class="input-group-addon" data-ng-bind="' + attrs.eInputgroupleft + '"></span>');
+              if (this.attrs.eInputgroupleft) {
+                var inputGroupLeft = angular.element('<span class="input-group-addon">' + this.attrs.eInputgroupleft + '</span>');
                 this.inputEl.parent().prepend(inputGroupLeft);
               }
 
-              if (attrs.eInputgroupright) {
-                var inputGroupRight = angular.element('<span class="input-group-addon" data-ng-bind="' + attrs.eInputgroupright + '"></span>');
+              if (this.attrs.eInputgroupright) {
+                var inputGroupRight = angular.element('<span class="input-group-addon">' + this.attrs.eInputgroupright + '</span>');
                 this.inputEl.parent().append(inputGroupRight);
               }
             }
 
             // Add label to the input
-            if (attrs.eLabel) {
-              var label = angular.element('<label>' + attrs.eLabel + '</label>');
-              if (attrs.eInputgroupleft || attrs.eInputgroupright) {
+            if (this.attrs.eLabel) {
+              var label = angular.element('<label>' + this.attrs.eLabel + '</label>');
+              if (this.attrs.eInputgroupleft || this.attrs.eInputgroupright) {
                 this.inputEl.parent().parent().prepend(label);
               } else {
                 this.inputEl.parent().prepend(label);
               }
             }
-
+            
             // Add classes to the form
-            if (attrs.eFormclass) {
-              this.editorEl.addClass(attrs.eFormclass);
+            if (this.attrs.eFormclass) {
+              this.editorEl.addClass(this.attrs.eFormclass);
               this.inputEl.removeAttr('formclass');
             }
           },
@@ -537,7 +524,7 @@ Input types: text|password|email|tel|number|url|search|color|date|datetime|datet
         render: function() {
           this.parent.render.call(this);
           this.inputEl.after('<output>' + $interpolate.startSymbol() + '$data' + $interpolate.endSymbol()  + '</output>');
-        }
+        }        
       });
   }]);
 
@@ -988,22 +975,22 @@ angular.module('xeditable').factory('editableController',
         self.resetEl.attr('title', editableOptions.clearButtonTitle);
         self.resetEl.attr('aria-label', editableOptions.clearButtonAriaLabel);
 
-      if (self.icon_set) {
-        self.submitEl.find('span').addClass(self.icon_set.ok);
-        self.cancelEl.find('span').addClass(self.icon_set.cancel);
-        self.resetEl.find('span').addClass(self.icon_set.clear);
-      }
-
-      if (editableOptions.displayClearButton) {
-        self.buttonsEl.append(self.resetEl);
-      }
+        if (self.icon_set) {
+          self.submitEl.find('span').addClass(self.icon_set.ok);
+          self.cancelEl.find('span').addClass(self.icon_set.cancel);
+          self.resetEl.find('span').addClass(self.icon_set.clear);
+          }
 
         self.buttonsEl.append(self.cancelEl);
 
       //added by Stanley Omoregie (stan@omotech.com) on October 17, 2019
-      if (editableOptions.displaySubmitButton || self.attrs.displaySubmitButton === 'true') {
+      if (self.attrs.displaySubmitButton === 'true') {
         self.buttonsEl.append(self.submitEl).append(self.cancelEl);
       }
+
+        if (editableOptions.displayClearButton) {
+          self.buttonsEl.append(self.resetEl);
+        }
 
         self.controlsEl.append(self.buttonsEl);
         
@@ -2639,28 +2626,19 @@ angular.module('xeditable').factory('editableIcons', function() {
       'bs2': {
         ok: 'icon-ok icon-white',
         cancel: 'icon-remove',
-        clear: 'icon-trash',
-        calendar: 'icon-calendar'
+        clear: 'icon-trash'
       },
       'bs3': {
         ok: 'glyphicon glyphicon-ok',
         cancel: 'glyphicon glyphicon-remove',
-        clear: 'glyphicon glyphicon-trash',
-        calendar: 'glyphicon glyphicon-calendar'
-      },
-      'bs4': {
-        ok: 'fa fa-check',
-        cancel: 'fa fa-times',
-        clear: 'fa fa-trash',
-        calendar: 'fa fa-calendar'
+        clear: 'glyphicon glyphicon-trash'
       }
     },
     external: {
       'font-awesome': {
         ok: 'fa fa-check',
         cancel: 'fa fa-times',
-        clear: 'fa fa-trash',
-        calendar: 'fa fa-calendar'
+        clear: 'fa fa-trash'
       }
     }
   };
@@ -2688,7 +2666,7 @@ angular.module('xeditable').factory('editableThemes', function() {
       inputTpl:     '',
       errorTpl:     '<div class="editable-error" data-ng-if="$error" data-ng-bind-html="$error"></div>',
       buttonsTpl:   '<span class="editable-buttons"></span>',
-      submitTpl:    '<button type="submit">save</button>',
+      submitTpl:    '<button type="submit" ng-click="$form.$submit()">save</button>',
       cancelTpl:    '<button type="button" ng-click="$form.$cancel()">cancel</button>',
       resetTpl:    '<button type="reset">clear</button>'
     },
@@ -2701,13 +2679,12 @@ angular.module('xeditable').factory('editableThemes', function() {
       inputTpl:    '',
       errorTpl:    '<div class="editable-error help-block" data-ng-if="$error" data-ng-bind-html="$error"></div>',
       buttonsTpl:  '<span class="editable-buttons"></span>',
-      submitTpl:   '<button type="submit" class="btn btn-primary"><span></span></button>',
+      submitTpl:   '<button type="submit" class="btn btn-primary" ng-click="$form.$submit()"><span></span></button>',
       cancelTpl:   '<button type="button" class="btn" ng-click="$form.$cancel()">'+
                       '<span></span>'+
                    '</button>',
-      resetTpl:    '<button type="reset" class="btn btn-danger">clear</button>',
-      calendarButtonClass: 'btn',
-      buttonGroupAppendClass: 'input-append'
+      resetTpl:    '<button type="reset" class="btn btn-danger">clear</button>'
+
     },
 
     //bs3
@@ -2718,7 +2695,7 @@ angular.module('xeditable').factory('editableThemes', function() {
       inputTpl:    '',
       errorTpl:    '<div class="editable-error help-block" data-ng-if="$error" data-ng-bind-html="$error"></div>',
       buttonsTpl:  '<span class="editable-buttons"></span>',
-      submitTpl:   '<button type="submit" class="btn btn-primary"><span></span></button>',
+      submitTpl:   '<button type="submit" class="btn btn-primary" ng-click="$form.$submit()"><span></span></button>',
       cancelTpl:   '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">'+
                      '<span></span>'+
                    '</button>',
@@ -2728,8 +2705,6 @@ angular.module('xeditable').factory('editableThemes', function() {
       buttonsClass: '',
       //bs3 specific prop to change standard inputs class: input-sm, input-lg
       inputClass: '',
-      calendarButtonClass: 'btn btn-default',
-      buttonGroupAppendClass: 'input-group-btn',
       postrender: function() {
         //apply `form-control` class to std inputs
         switch(this.directiveName) {
@@ -2770,69 +2745,7 @@ angular.module('xeditable').factory('editableThemes', function() {
         }
       }
     },
-
-    //bs4
-    'bs4': {
-      formTpl:     '<form class="form-inline editable-wrap" role="form"></form>',
-      noformTpl:   '<span class="editable-wrap"></span>',
-      controlsTpl: '<div class="editable-controls form-group"></div>',
-      inputTpl:    '',
-      errorTpl:    '<div class="editable-error form-text invalid-feedback" data-ng-if="$error" data-ng-bind-html="$error"></div>',
-      buttonsTpl:  '<span class="editable-buttons"></span>',
-      submitTpl:   '<button type="submit" class="btn btn-primary"><span></span></button>',
-      cancelTpl:   '<button type="button" class="btn btn-secondary" ng-click="$form.$cancel()">'+
-                     '<span></span>'+
-                   '</button>',
-      resetTpl:    '<button type="reset" class="btn btn-danger">clear</button>',
-
-      //bs4 specific prop to change buttons class: btn-sm, btn-lg
-      buttonsClass: '',
-      //bs4 specific prop to change standard inputs class: form-control-sm, form-control-lg
-      inputClass: '',
-      calendarButtonClass: 'btn btn-secondary',
-      buttonGroupAppendClass: 'input-group-append',
-      postrender: function() {
-          //apply `form-control` class to std inputs
-          switch(this.directiveName) {
-              case 'editableText':
-              case 'editableSelect':
-              case 'editableTextarea':
-              case 'editableEmail':
-              case 'editableTel':
-              case 'editableNumber':
-              case 'editableUrl':
-              case 'editableSearch':
-              case 'editableDate':
-              case 'editableDatetime':
-              case 'editableBsdate':
-              case 'editableTime':
-              case 'editableMonth':
-              case 'editableWeek':
-              case 'editablePassword':
-              case 'editableDatetimeLocal':
-                  this.inputEl.addClass('form-control');
-                  this.inputEl.attr('ng-class', "{'is-invalid': $error}");
-                  if (this.theme.inputClass) {
-                      // don`t apply `form-control-sm` and `form-control-lg` to select multiple
-                      // should be fixed in bs itself!
-                      if(this.inputEl.attr('multiple') &&
-                          (this.theme.inputClass === 'form-control-sm' || this.theme.inputClass === 'form-control-lg')) {
-                          break;
-                      }
-                      this.inputEl.addClass(this.theme.inputClass);
-                  }
-                  break;
-              case 'editableCheckbox':
-                  this.editorEl.addClass('form-check');
-          }
-
-          //apply buttonsClass (bs4 specific!)
-          if(this.buttonsEl && this.theme.buttonsClass) {
-              this.buttonsEl.find('button').addClass(this.theme.buttonsClass);
-          }
-        }
-    },
-
+    
     //semantic-ui
     'semantic': {
       formTpl:     '<form class="editable-wrap ui form" ng-class="{\'error\': $error}" role="form"></form>',
