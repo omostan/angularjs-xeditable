@@ -981,12 +981,16 @@ angular.module('xeditable').factory('editableController',
           self.resetEl.find('span').addClass(self.icon_set.clear);
           }
 
-        self.buttonsEl.append(self.cancelEl);
-
-      //added by Stanley Omoregie (stan@omotech.com) on October 17, 2019
-      if (self.attrs.displaySubmitButton === 'true') {
-        self.buttonsEl.append(self.submitEl).append(self.cancelEl);
-      }
+        /**
+         * Added by Stanley Omoregie (stan@omotech.com) on October 17, 2019 and edited on October 24, 2019
+         * If the attribute (display-submit-button) is configured directly on the element, this takes preceedings.
+         * Otherwise, the attribute (editableOptions.displaySubmitButton) value set on the application run level will be evaluated.
+         */
+        if (self.attrs.displaySubmitButton !== undefined) {
+            self.attrs.displaySubmitButton === 'true' ? self.buttonsEl.append(self.submitEl).append(self.cancelEl) : self.buttonsEl.append(self.cancelEl);
+        } else {
+            editableOptions.displaySubmitButton ? self.buttonsEl.append(self.submitEl).append(self.cancelEl) : self.buttonsEl.append(self.cancelEl);
+        }
 
         if (editableOptions.displayClearButton) {
           self.buttonsEl.append(self.resetEl);
